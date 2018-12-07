@@ -1,3 +1,4 @@
+require 'pry-debugger-jruby'
 require_relative 'java_imports'
 require_relative 'utils'
 require_relative 'xoppa_shader'
@@ -57,6 +58,7 @@ class MainGame < ApplicationAdapter
     #Gdx::gl::gl_clear_color(0.5, 0.5, 0.5, 1)
     Gdx::gl::gl_clear(GL20::GL_COLOR_BUFFER_BIT | GL20::GL_DEPTH_BUFFER_BIT)
 
+    binding.pry
     @camController.update
 
     @modelBatch.begin($camera)

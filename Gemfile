@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
 gem 'listen'
-gem 'pry'
+gem 'pry-debugger-jruby'

@@ -1,12 +1,5 @@
-if ENV.include? 'ZOMG_DESKTOP'
-  if ENV['ZOMG_DESKTOP'] == 'true'
-    $desktop = true
-    FileRoot = "#{ENV['HOME']}/srg/zomg/assets"
-  end
-else
-  FileRoot = ''
-  $scale = 1
-end
+$desktop = true
+FileRoot = "#{ENV['REDC_START_DIR']}/assets"
 
 def libgdx_version
   llog("version: #{com::badlogic::gdx::Version::VERSION}")
