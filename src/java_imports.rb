@@ -19,7 +19,10 @@ desktop_jardir = "./libs/desktop"
 desktop_jars = [
   'gdx-backend-lwjgl3-1.13.5.jar', # 3N5-109p not the glfw dependency
   #'gdx-platform-1.13.5-natives-arm64-v8a.jar',
-  #'gdx-platform-1.13.5-natives-desktop.jar',
+  'gdx-platform-1.13.5-natives-desktop.jar',
+  'lwjgl-natives-macos-arm64.jar',
+  'lwjgl-glfw-natives-macos-arm64.jar',
+  'lwjgl-opengl-natives-macos-arm64.jar',
   #'gdx-lwjgl3-angle-1.13.5.jar',
   #
   # 6N5 these jarfiles come not from libgdx but the GLFW project.
@@ -27,6 +30,7 @@ desktop_jars = [
   # 6N5 using version 3.3.6 (latest available today)
   'lwjgl.jar',
   'lwjgl-glfw.jar',
+  'lwjgl-opengl.jar',
   #'lwjgl-natives-macos-arm64.jar',
   #'lwjgl-openal-natives-macos-arm64.jar',
 ]
@@ -57,7 +61,7 @@ imports = [
   'Gdx',
   #'ScreenAdapter',
   #'backends.lwjgl.LwjglNativesLoader',
-  #'graphics.GL20',
+  'graphics.GL20',
   #'graphics.Texture',
   #'graphics.Color',
   #'graphics.Mesh',

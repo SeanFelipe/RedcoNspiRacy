@@ -26,4 +26,4 @@ Java::ComBadlogicGdxUtils::SharedLibraryLoader = SharedLibraryLoader
 puts SharedLibraryLoader
 
 GdxNativesLoader.load
-#Lwjgl3Application.new($redc, configuration)
+Lwjgl3Application.new($redc, configuration)
