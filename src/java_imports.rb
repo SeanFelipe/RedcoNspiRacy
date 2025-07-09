@@ -26,7 +26,7 @@ desktop_imports = [
 ]
 
 desktop_imports.each do |i|
-  puts "importing #{i}"
+  #puts "importing #{i}"
   java_import "com.badlogic.gdx.#{i}"
 end
 

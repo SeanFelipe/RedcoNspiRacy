@@ -4,6 +4,7 @@ java_import java.lang.Runnable
 module Reloader
   FILES =  [
    #"./desktop.rb",
+   "./colorz.rb",
    "./zredc.rb",
   ]
 
@@ -13,6 +14,8 @@ module Reloader
     include Runnable
     def run
       Reloader.reload
+      $redc.render
+      puts "ReloadRequest.run"
     end
   end
 
@@ -24,21 +27,19 @@ module Reloader
       $VERBOSE = nil
       FILES.each do |ff|
         path = "#{basedir}/#{ff}"
-        puts "loading #{path}..."
+        print "loading #{path}..."
         result = load path
-        puts result
-        puts "load #{path} complete."
+        print "#{result}\n"
+        #puts "load #{path} complete."
         #binding.pry
         #puts
       end
       puts "reloaded files:"
       FILES.each {|ff| puts ff}
-      Contents.add_workbox_contents
-      #Contents.c = []
-      puts "post-reload, workbox contents: #{Contents.c}"
     end
 
     def post_reload
+      puts "posting reload request..."
       Gdx::app::postRunnable(ReloadRequest.new)
     end
   end
