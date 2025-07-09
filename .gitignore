@@ -4,3 +4,4 @@ bin/
 out.desktop
 *.log
 .~lock*
+.temp/

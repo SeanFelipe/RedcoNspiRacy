@@ -1,8 +1,5 @@
 require_relative 'java_imports'
 require_relative 'zredc'
-require_relative '../libs/desktop/lwjgl.jar'
-#org/lwjgl/system/SharedLibraryLoader.class
-java_import 'org.lwjgl.system.SharedLibraryLoader'
 
 configuration = Lwjgl3ApplicationConfiguration.new
 configuration.title = 'RedC'
@@ -20,10 +17,4 @@ $scale = 1
 configuration.resizable = true
 
 $redc = MainGame.new
-#LwjglNativesLoader.load
-
-Java::ComBadlogicGdxUtils::SharedLibraryLoader = SharedLibraryLoader
-puts SharedLibraryLoader
-
-GdxNativesLoader.load
 Lwjgl3Application.new($redc, configuration)

@@ -5,7 +5,7 @@ runfile_dir = 'src'
 
 def start_desktop
   puts 'start_desktop'
-  `cd src && jruby desktop.rb > ../out.desktop 2>&1 &`
+  `cd src && jruby -J-XstartOnFirstThread desktop.rb > ../out.desktop 2>&1 &`
 end
 
 listener = Listen.to(runfile_dir, only: /\.rb/) do |modified, added, removed|

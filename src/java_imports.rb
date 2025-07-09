@@ -2,41 +2,22 @@ java_import 'java.util.Timer'
 java_import 'java.util.TimerTask'
 #
 
-jardir =  './libs'
+jardir =  ENV.fetch 'GDX_LIBS_DIR'
 gdx_jars = [
   'gdx-1.13.5.jar',
   'gdx-jnigen-loader-2.5.2.jar',
-  #'gdx-natives.jar',
-  #'gdx-freetype.jar',
-  #'gdx-freetype-natives.jar',
+  'gdx-backend-lwjgl3-1.13.5.jar', # 3N5-109p not the glfw dependency
+  'gdx-platform-1.13.5-natives-desktop.jar',
+  'lwjgl-glfw-natives-macos-arm64.jar',
+  'lwjgl-glfw.jar',
+  'lwjgl-natives-macos-arm64.jar',
+  'lwjgl-opengl-natives-macos-arm64.jar',
+  'lwjgl-opengl.jar',
+  'lwjgl.jar',
 ]
 gdx_jars.each do |j|
-  puts "loading #{j}"
+  #puts "loading #{j}"
   require "#{jardir}/#{j}"
-end
-
-desktop_jardir = "./libs/desktop"
-desktop_jars = [
-  'gdx-backend-lwjgl3-1.13.5.jar', # 3N5-109p not the glfw dependency
-  #'gdx-platform-1.13.5-natives-arm64-v8a.jar',
-  'gdx-platform-1.13.5-natives-desktop.jar',
-  'lwjgl-natives-macos-arm64.jar',
-  'lwjgl-glfw-natives-macos-arm64.jar',
-  'lwjgl-opengl-natives-macos-arm64.jar',
-  #'gdx-lwjgl3-angle-1.13.5.jar',
-  #
-  # 6N5 these jarfiles come not from libgdx but the GLFW project.
-  # https://www.lwjgl.org/customize
-  # 6N5 using version 3.3.6 (latest available today)
-  'lwjgl.jar',
-  'lwjgl-glfw.jar',
-  'lwjgl-opengl.jar',
-  #'lwjgl-natives-macos-arm64.jar',
-  #'lwjgl-openal-natives-macos-arm64.jar',
-]
-desktop_jars.each do |j|
-  puts "loading #{j}"
-  require "#{desktop_jardir}/#{j}"
 end
 
 desktop_imports = [
