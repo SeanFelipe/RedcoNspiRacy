@@ -13,7 +13,6 @@ module Reloader
   class ReloadRequest
     include Runnable
     def run
-      Reloader.reload
       $redc.render
       puts "ReloadRequest.run"
     end
@@ -32,14 +31,14 @@ module Reloader
         print "#{result}\n"
         #puts "load #{path} complete."
         #binding.pry
-        #puts
       end
       puts "reloaded files:"
       FILES.each {|ff| puts ff}
+      post_reload
     end
 
     def post_reload
-      puts "posting reload request..."
+      puts "posting render request..."
       Gdx::app::postRunnable(ReloadRequest.new)
     end
   end

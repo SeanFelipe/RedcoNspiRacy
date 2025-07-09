@@ -30,7 +30,7 @@ listener = Listen.to(runfile_dir, only: /\.rb/) do |modified, added, removed|
     if modified != nil
       print 'reloading...'
       Reloader.reload(true)
-      print 'reload complete'
+      #print 'reload complete'
     end
   end
 end
